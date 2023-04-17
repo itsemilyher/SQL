@@ -1,0 +1,27 @@
+#In this SQL, I'm querying a database with mutliple tables to show statistics about the top movies.
+
+SELECT*FROM topmovies;
+
+#1. What are average, max, and min values in the data?
+SELECT AVG(year) AS average_year FROM topmovies;
+SELECT MAX(year) AS maximum_year FROM topmovies;
+SELECT MIN(year) AS minimum_year FROM topmovies;
+
+#2. What about those numbers per category in the data (using HAVING)?
+SELECT title, SUM(year) AS latest_movie FROM topmovies GROUP BY title HAVING year > 2013;
+
+#3. What ways are there to group the data values that don’t exist yet (using CASE)
+SELECT title, year,
+CASE
+WHEN year < 2010 THEN 'old'
+ELSE 'new'
+END
+AS oldest_newest_movies
+FROM topmovies
+GROUP BY year;
+
+#4. What interesting ways are there to filter the data (using AND/OR)?
+SELECT * FROM topmovies WHERE domestic > 600 AND overseas > 2000;
+SELECT * FROM topmovies WHERE domestic < 352 OR overseas > 1000;
+
+
