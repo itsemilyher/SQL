@@ -1,0 +1,56 @@
+#In this SQL, I made my own table with some small set of famous singers about what songs they sung, where they were born, etc...
+
+CREATE TABLE singers (id integer primary key, First_name text, Last_name text, Born text, Birthdate integer);
+
+INSERT INTO singers (First_name, Last_name, Born, Birthdate) 
+VALUES ("Ariana", "Grande", "Bocan Raton, FL, US", "06/26/1993");
+INSERT INTO singers (First_name, Last_name, Born, Birthdate) 
+VALUES ("Taylor", "Swift", "West Reading, PA, US", "12/13/1989");
+INSERT INTO singers (First_name, Last_name, Born, Birthdate)  
+VALUES ("Adele", "Adkins", "Tottenham, London, UK", "05/5/1988");
+INSERT INTO singers (First_name, Last_name, Born, Birthdate) 
+VALUES ("Selena", "Gomez", "Grand Prairie, TX, US", "07/22/1992");
+INSERT INTO singers (First_name, Last_name, Born, Birthdate)  
+VALUES ("Rihanna", "Fenty", "Saint Michael, Barbados", "02/20/1988");
+
+CREATE TABLE songs (id integer primary key, singer_id text, name text, Year integer);
+
+INSERT INTO songs (singer_id, name, year)
+VALUES (2, "Love Story", "2008");
+INSERT INTO songs (singer_id, name, year)
+VALUES (2, "Blank Space", "2014");
+INSERT INTO songs (singer_id, name, year)
+VALUES (2, "Cruel Summer", "2019");
+INSERT INTO songs (singer_id, name, year)
+VALUES (1, "Side to Side", "2016");
+INSERT INTO songs (singer_id, name, year)
+VALUES (1, "God is a woman", "2018");
+INSERT INTO songs (singer_id, name, year)
+VALUES (1, "positions", "2020");
+INSERT INTO songs (singer_id, name, year)
+VALUES (3, "Someone Like You", "2011");
+INSERT INTO songs (singer_id, name, year)
+VALUES (3, "Hello", "2015");
+INSERT INTO songs (singer_id, name, year)
+VALUES (3, "Easy on Me", "2021");
+INSERT INTO songs (singer_id, name, year)
+VALUES (4, "Same Old Love", "2015");
+INSERT INTO songs (singer_id, name, year)
+VALUES (4, "Wolves", "2017");
+INSERT INTO songs (singer_id, name, year)
+VALUES (4, "Calm Down", "2022");
+INSERT INTO songs (singer_id, name, year)
+VALUES (5, "Rude Boy", "2009");
+INSERT INTO songs (singer_id, name, year)
+VALUES (5, "Diamonds", "2012");
+INSERT INTO songs (singer_id, name, year)
+VALUES (5, "Work", "2016");
+
+SELECT * FROM singers
+JOIN songs
+ON singers.id = songs.singer_id;
+
+SELECT first_name, last_name, name AS Songs, year
+FROM singers
+JOIN songs
+ON singers.id= songs.singer_id;
