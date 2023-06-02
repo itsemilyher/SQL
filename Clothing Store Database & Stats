@@ -18,11 +18,11 @@ INSERT INTO store VALUES (13, "Shorts", 11, "Blue", "XS S M L XL", 14.99);
 INSERT INTO store VALUES (14, "Shorts", 11, "Pink", "XS S M L XL", 14.99);
 INSERT INTO store VALUES (15, "Shorts", 11, "White", "XS S M L XL", 14.99);
 
--Display the database ordered by price from highest to lowest.
+1. Display the database ordered by price from highest to lowest.
 SELECT * FROM store ORDER BY price DESC;
 
--What is the total price of each items?
+2. What is the total price of each items?
 SELECT item, SUM(price) FROM store GROUP BY item;
 
--What is the total quantity of each items?
+3. What is the total quantity of each items?
 SELECT item, SUM(quantity) FROM store GROUP BY item;
